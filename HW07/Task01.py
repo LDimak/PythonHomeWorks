@@ -7,6 +7,8 @@
 Стихотворение  Винни-Пух вбивает в программу с клавиатуры. В ответе напишите “Парам пам-пам”,
 если с ритмом все в порядке и “Пам парам”, если с ритмом все не в порядке.
 '''
+
+
 def count_vowels(word):
     # Функция для подсчета гласных букв в слове на русском языке
     vowels = "аеёиоуыэюя"
@@ -16,24 +18,24 @@ def count_vowels(word):
             count += 1
     return count
 
+
 def check_rhythm(poem):
     # Функция для проверки ритма в стихотворении на русском языке
-    lines = poem.split()
+    lines = list(poem.split())
+    print(lines)
     num_vowels = []
     for line in lines:
         words = line.split("-")
         count = 0
         for word in words:
-            count += count_vowels(word)
+            count = count + count_vowels(word)
         num_vowels.append(count)
     if len(set(num_vowels)) == 1:
         print("Парам пам-пам")
     else:
         print("Пам парам")
 
+
 # Пример использования
 poem = input("Введите стихотворение: ")
 check_rhythm(poem)
-
-
-
